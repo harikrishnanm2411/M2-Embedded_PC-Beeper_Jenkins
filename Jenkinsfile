@@ -15,4 +15,3 @@ pipeline {
 }
 
 
-docker exec b1a1e372723c cat /var/jenkins_home/secrets/initialAdminPassword
