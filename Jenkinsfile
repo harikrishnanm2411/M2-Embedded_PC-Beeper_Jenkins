@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     parameters {
-        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+        string(defaultValue: "TEST", description: "Which Environment?", name: "EnvironmentVarialbne")
     }
 
     stages {
         stage("foo") {
             steps {
-                echo "flag: ${params.userFlag}"
+                echo "flag: ${params.EnvironmentVarialbne}"
             }
         }
     }
