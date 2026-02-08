@@ -1,50 +1,18 @@
 pipeline {
-agent any
+    agent any
 
-
-stages {
-
-    stage('Checkout Code') {
-        steps {
-            // Pull code from GitHub
-            git branch: 'master', url: 'https://github.com/harikrishnanm2411/M2-Embedded_PC-Beeper_Jenkins.git'
-        }
+    parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
     }
 
-    stage('Build') {
-        steps {
-            echo "Building project..."
-            
-            // Example build commands (change as per project)
-
-            
-        }
-    }
-
-    stage('Test') {
-        steps {
-            echo "Running tests..."
-            
-            
-        }
-    }
-
-    stage('Deploy') {
-        steps {
-            echo "Deploy step..."
-            // Add deploy script if needed
+    stages {
+        stage("foo") {
+            steps {
+                echo "flag: ${params.userFlag}"
+            }
         }
     }
 }
 
-post {
-    success {
-        echo 'Build Successful!'
-    }
-    failure {
-        echo 'Build Failed!'
-    }
-}
 
-
-}
+docker exec b1a1e372723c cat /var/jenkins_home/secrets/initialAdminPassword
