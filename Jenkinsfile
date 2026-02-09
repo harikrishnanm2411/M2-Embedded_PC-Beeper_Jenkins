@@ -1,50 +1,21 @@
 pipeline {
-agent any
+  agent any
 
 
-stages {
-
-    stage('Checkout Code') {
-        steps {
-            // Pull code from GitHub
-            git branch: 'master', url: 'https://github.com/harikrishnanm2411/M2-Embedded_PC-Beeper_Jenkins.git'
-        }
+Environment {
+        def myString = "Hello World"
+        def mynumber = 10
+        def myBool = true
     }
 
-    stage('Build') {
-        steps {
-            echo "Building project..."
-            
-            // Example build commands (change as per project)
-
-            
-        }
-    }
-
-    stage('Test') {
-        steps {
-            echo "Running tests..."
-            
-            
-        }
-    }
-
-    stage('Deploy') {
-        steps {
-            echo "Deploy step..."
-            // Add deploy script if needed
+    stages {
+        stage("Demo") {
+            steps {
+                echo "string: ${myString}"
+                echo "mynumber: ${mynumber}"
+                echo "mybool: ${myBool} "
+            }
         }
     }
 }
 
-post {
-    success {
-        echo 'Build Successful!'
-    }
-    failure {
-        echo 'Build Failed!'
-    }
-}
-
-
-}
