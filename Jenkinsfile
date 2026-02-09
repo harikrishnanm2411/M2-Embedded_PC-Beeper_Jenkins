@@ -2,7 +2,7 @@ pipeline {
   agent any
 
 
-Environment {
+environment {
         def myString = "Hello World"
         def mynumber = 10
         def myBool = true
